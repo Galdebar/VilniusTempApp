@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  front-end:
+    build: ./frontend
+    container_name: front-end
+    ports:
+      - ${FRONT_PORT}:${FRONT_PORT}
+    environment:
+      - VUE_APP_API_URL=back-end
+    links:
+      - back-end
+
+  back-end:
+    build: ./backend
+    container_name: back-end
+    ports:
+      - ${BACK_PORT}:${BACK_PORT}
+    depends_on:
+        - mongo-db
+      
+  mongo-db:
+    image: mongo:latest
+    restart: always
+    container_name: mongo-db
+    environment:
+      NAME: ${MONGO_DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASS}
+    ports:
+      - ${MONGO_DB_PORT}:${MONGO_DB_PORT}
+    volumes:
+      - ./mongo_data:/data/db
