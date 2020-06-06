@@ -13,6 +13,6 @@ FROM openjdk:11-jdk
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/vilnius-temp-0.0.1-SNAPSHOT.jar /usr/local/lib/app.jar
 EXPOSE 8080:8080
-CMD ["java", "-Dserver.port=$PORT -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8 -XX:+UseContainerSupport -Djava.security.egd=file:/dev/./urandom", "-jar","/usr/local/lib/app.jar"]
+CMD ["java", "-Xmx300m", "-Xss512k", "-XX:CICompilerCount=2", "-Dfile.encoding=UTF-8", "-XX:+UseContainerSupport", "-Djava.security.egd=file:/dev/./urandom", "-jar","/usr/local/lib/app.jar"]
 
 
