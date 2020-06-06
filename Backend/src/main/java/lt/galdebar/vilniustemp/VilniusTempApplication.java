@@ -9,6 +9,8 @@ public class VilniusTempApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VilniusTempApplication.class, args);
 		System.out.println("App Runs");
+		String port = System.getenv().get("PORT");
+		System.out.println(port);
 	}
 
 }
