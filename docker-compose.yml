@@ -5,7 +5,7 @@ services:
     build: ./frontend
     container_name: front-end
     ports:
-      - ${FRONT_PORT}:${FRONT_PORT}
+      - ${FRONT_PORT}:8080
     environment:
       - VUE_APP_API_URL=back-end
     links:
@@ -15,9 +15,31 @@ services:
     build: ./backend
     container_name: back-end
     ports:
-      - ${BACK_PORT}:${BACK_PORT}
+      - ${BACK_PORT}:8080
+    stop_signal: SIGKILL
+    stdin_open: true
+    tty: true
+    working_dir: $PWD
+    volumes:
+        - $PWD:$PWD
+        - /usr/bin/docker:/usr/bin/docker
+        - /testcontainers-did/:/testcontainers-did
+        - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
         - mongo-db
+
+  tests:
+    image: maven:3
+    stop_signal: SIGKILL
+    stdin_open: true
+    tty: true
+    working_dir: $PWD
+    volumes:
+      - $PWD:$PWD
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Maven cache (optional)
+      - ~/.m2:/root/.m2
+    command: mvn test
       
   mongo-db:
     image: mongo:latest
