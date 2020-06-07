@@ -1,54 +1,34 @@
 version: '3'
 services:
 
-  front-end:
-    build: ./frontend
-    container_name: front-end
-    ports:
-      - ${FRONT_PORT}:8080
-    environment:
-      - VUE_APP_API_URL=back-end
-    links:
-      - back-end
+#  front-end:
+#    build: ./frontend
+#    container_name: front-end
+#    ports:
+#      - ${FRONT_PORT}:8080
+#    environment:
+#      - VUE_APP_API_URL=back-end
+#    links:
+#      - back-end
 
   back-end:
     build: ./backend
     container_name: back-end
     ports:
       - ${BACK_PORT}:8080
-    stop_signal: SIGKILL
-    stdin_open: true
-    tty: true
-    working_dir: $PWD
-    volumes:
-        - $PWD:$PWD
-        - /usr/bin/docker:/usr/bin/docker
-        - /testcontainers-did/:/testcontainers-did
-        - /var/run/docker.sock:/var/run/docker.sock
+    links:
+      - mongo-db
     depends_on:
         - mongo-db
 
-  tests:
-    image: maven:3
-    stop_signal: SIGKILL
-    stdin_open: true
-    tty: true
-    working_dir: $PWD
-    volumes:
-      - $PWD:$PWD
-      - /var/run/docker.sock:/var/run/docker.sock
-      # Maven cache (optional)
-      - ~/.m2:/root/.m2
-    command: mvn test
-      
   mongo-db:
     image: mongo:latest
     restart: always
     container_name: mongo-db
     environment:
-      NAME: ${MONGO_DB_NAME}
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASS}
+      NAME: vilniustempdb
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: someverysecretpassword
     ports:
       - ${MONGO_DB_PORT}:${MONGO_DB_PORT}
     volumes:
