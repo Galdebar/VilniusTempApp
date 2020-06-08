@@ -14,6 +14,11 @@ services:
   back-end:
     build: ./backend
     container_name: back-end
+    environment:
+      MONGO_DB_NAME: ${MONGO_DB_NAME}
+      MONGO_USERNAME: ${MONGO_DB_USER}
+      MONGO_PASSWORD: ${MONGO_DB_PASS}
+      MONGO_PORT: ${MONGO_DB_PORT}
     ports:
       - ${BACK_PORT}:8080
     links:
@@ -26,10 +31,10 @@ services:
     restart: always
     container_name: mongo-db
     environment:
-      NAME: vilniustempdb
-      MONGO_INITDB_ROOT_USERNAME: mongouser
-      MONGO_INITDB_ROOT_PASSWORD: someverysecretpassword
+      NAME: ${MONGO_DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASS}
     ports:
-      - ${MONGO_DB_PORT}:${MONGO_DB_PORT}
+      - ${MONGO_DB_PORT}:27017
     volumes:
       - ./mongo_data:/data/db
