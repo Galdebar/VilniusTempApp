@@ -1,4 +1,4 @@
-# DogFacts
+# VilniusTemp App
 
 A REST-full app that provides hourly temperature readings in Vilnius.
 Consumes remote API to get the data: https://www.climacell.co/weather-api/
