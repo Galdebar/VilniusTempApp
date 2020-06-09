@@ -9,8 +9,8 @@ Consumes remote API to get the data: https://www.climacell.co/weather-api/
 - Docker environment running
 
 ## Quickstart
-`$./mvn clean package`
-`$./docker-compose up`
+- `$./mvn clean package`
+- `$./docker-compose up`
 
 The app url will depend on the docker host IP. Default `192.168.99.100`
 Default front-end port `8080`
