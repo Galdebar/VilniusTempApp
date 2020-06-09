@@ -33,6 +33,7 @@ Example of the default JSON object used in all endpoints:
 - `/history` - Fetches full available temperature history. Currently max 30 days due to remote API limitations
     - `?days=` -  Optional query parameter. Returns list of temperature readings dating back the specified amount of days.
     Example request `GET/history?days=25`
+- `/nextupdate` - Retrieves the Local Date Time of the next scheduled update.
     
        
 ## Design & Decisions
@@ -48,5 +49,7 @@ I prefer NoSQL databases, because they're also suitable for rapid prototyping an
 
 ## Acknowledgement
 - Tests are a bit haphazard and can be more thorough. Could've chosen to either go full integration, or strictly component. But since the app is fairly small, current tests don't take up too much time.
-- There is an edge-case chance the build may fail since you can hit remote API rate limit.
+- Backend may fail to start if the remote API call rate limit is reached.
 - Database calls are not optimized.
+- Docker-compose and Dockerfile configurations are suboptimal.
+- Front-end needs heavy improvements both in design and functionality.
