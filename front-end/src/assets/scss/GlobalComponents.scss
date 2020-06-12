@@ -1,0 +1,129 @@
+@import "Variables";
+// @import "InteractiveElements";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: $background-color;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-wrapper{
+  max-width: $wrapper-width-desktop;
+
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-top: $small-distance;
+}
+
+.wrapper {
+  width: $wrapper-width-mobile;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: $small-distance;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: $default-black;
+}
+
+p,
+a{
+  font-family: "Montserrat", sans-serif;
+}
+
+.container-inset {
+  border-radius: $small-distance;
+  margin: $small-distance 0;
+  box-sizing: border-box;
+  background: $background-color;
+  box-shadow: inset 5px 5px 10px #bec3c9, inset -5px -5px 10px #ffffff;
+}
+
+.container {
+  border-radius: $extra-small-distance;
+  background: $background-color;
+
+  //background: linear-gradient(145deg, #caced4, #f0f5fd);
+  box-shadow: 1px 2px 5px $container-shadow-color,
+    -1px -2px 5px $container-highlight-color;
+}
+
+.no-wrap-flex {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vertical-flex-center {
+  display:flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.masking-shadow-bottom {
+  -webkit-box-shadow: 0 10px 10px 0 $background-color;
+  -moz-box-shadow: 0 10px 10px 0 $background-color;
+  box-shadow: 0 10px 10px 0 $background-color;
+}
+
+
+.separator-bottom-dark {
+  border-bottom: 2px solid $medium-color-overlay;
+}
+
+.standard-margins-vertical {
+  margin-top: $default-distance;
+  margin-bottom: $default-distance;
+}
+
+.default-padding {
+  padding: $default-distance;
+  box-sizing: border-box;
+}
+
+.small-padding {
+  padding: $small-distance;
+  box-sizing: border-box;
+}
+
+
+header{
+  width: 100%;
+  align-content: center;
+}
+
+
+button {
+  box-sizing: border-box;
+  padding: $small-distance;
+  border: none;
+  border: 2px solid $brand-color;
+  border-radius: $extra-small-distance;
+  background: none;
+  font-size: 1.2em;
+
+  box-shadow: 2px 2px 3px $interactive-element-shadow-color-lighter,
+    -1px -1px 2px $container-highlight-color;
+}
+

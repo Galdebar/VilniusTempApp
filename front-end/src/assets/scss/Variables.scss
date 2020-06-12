@@ -1,0 +1,55 @@
+
+$default-distance: 16px;
+$small-distance: 8px;
+$extra-small-distance: 4px;
+$large-distance: 32px;
+$extra-large-distance: 64px;
+$corner-rounding: 10px;
+
+$default-button-size: 42px;
+
+$top-bar-height: 64px;
+$bottom-bar-height: 80px;
+
+$wrapper-width-mobile: 95%;
+$wrapper-width-tablet: 75%;
+$wrapper-width-desktop: 600px;
+
+$header-width: 75vw;
+
+$background-z-index: 0;
+$list-z-index: 5;
+$list-overlay-z-index: 10;
+$header-z-index: 15;
+$loading-z-index: 20;
+
+$default-transition: 0.5s;
+$fast-transition: 0.2s;
+$extra-fast-transition: 0.1s;
+$slow-transition: 2s;
+
+// $brand-yellow: #FFBF00;
+$brand-color: rgb(45, 170, 133);
+$brand-green-washed-out: #b2e68a;
+$default-white: whitesmoke;
+$default-black: #1f1f1f;
+$background-color: #fafafa;
+$slightly-darker-bg: #e6e6e6;
+$deep-bg-color: #f1f1f1;
+$light-grey: rgb(197, 197, 197);
+$grey: #878787;
+$dark-grey: #4d4d4d;
+
+$error-red: #d17449;
+
+$dark-color-overlay: rgba(0, 0, 0, 0.76);
+$medium-color-overlay: rgba(0, 0, 0, 0.26);
+$light-color-overlay: rgba(247, 247, 247, 0.5);
+
+$container-shadow-color: #a8a8a8;
+$container-highlight-color: #ffffff;
+
+$interactive-element-shadow-color: rgb(80, 80, 80);
+$interactive-element-highlight-color: #ffffff;
+$interactive-element-shadow-color-lighter: rgb(100, 100, 100);
+$interactive-element-highlight-color-darker:#f3f3f3;
